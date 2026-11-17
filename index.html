@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crud Motion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark"></span>
+    <span class="brand-name">Crud Motion</span>
+  </div>
+  <input class="field search" type="search" aria-label="Search expenses" placeholder="Search merchant, note, category or date (Nov, 11/12)">
+  <div class="topbar-right">
+    <select class="field category-select" aria-label="Category shown in dashboard"></select>
+    <span class="user-label" hidden></span>
+    <button class="auth-button" type="button" data-state="out">Log in</button>
+  </div>
+</header>
+<main class="page">
+  <section class="card add-expense" aria-labelledby="add-expense-title">
+    <h2 class="card-title" id="add-expense-title">Add expense</h2>
+    <form class="expense-form" novalidate>
+      <label class="form-field field-amount">
+        <span class="form-label">Amount</span>
+        <input class="field" name="amount" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0.00">
+        <span class="field-error" data-error-for="amount"></span>
+      </label>
+      <label class="form-field field-category">
+        <span class="form-label">Category</span>
+        <select class="field select" name="category"></select>
+        <span class="field-error"></span>
+      </label>
+      <label class="form-field field-merchant">
+        <span class="form-label">Where</span>
+        <input class="field" name="merchant" type="text" placeholder="Merchant" autocomplete="off">
+        <span class="field-error" data-error-for="merchant"></span>
+      </label>
+      <label class="form-field field-date">
+        <span class="form-label">When</span>
+        <input class="field" name="date" type="date">
+        <span class="field-error" data-error-for="date"></span>
+      </label>
+      <label class="form-field field-note">
+        <span class="form-label">Note <span class="form-label-soft">(optional)</span></span>
+        <input class="field" name="note" type="text" placeholder="Add a note" autocomplete="off">
+        <span class="field-error"></span>
+      </label>
+      <div class="form-field field-submit">
+        <button class="add-button" type="submit">Add expense</button>
+        <span class="field-error form-status" role="status"></span>
+      </div>
+    </form>
+  </section>
+  <div class="dashboard">
+    <section class="card breakdown" aria-labelledby="breakdown-title">
+      <h2 class="card-title" id="breakdown-title">Breakdown</h2>
+    </section>
+    <div class="dashboard-side">
+      <section class="card trend" aria-labelledby="trend-title">
+        <h2 class="card-title" id="trend-title">Last 30 days</h2>
+      </section>
+      <section class="card stats" aria-labelledby="stats-title">
+        <h2 class="card-title" id="stats-title">Quick stats</h2>
+      </section>
+    </div>
+  </div>
+  <section class="card recent" aria-labelledby="recent-title">
+    <h2 class="card-title" id="recent-title">Recent expenses</h2>
+  </section>
+</main>
+<dialog class="auth-dialog" aria-labelledby="auth-title">
+  <form class="auth-form" novalidate>
+    <div class="auth-head">
+      <h2 class="auth-title" id="auth-title">Log in</h2>
+      <button class="auth-close" type="button" aria-label="Close">&times;</button>
+    </div>
+    <label class="form-field">
+      <span class="form-label">Email</span>
+      <input class="field" name="email" type="email" autocomplete="email" required>
+    </label>
+    <label class="form-field">
+      <span class="form-label">Password</span>
+      <input class="field" name="password" type="password" autocomplete="current-password" required>
+    </label>
+    <p class="auth-error" role="alert"></p>
+    <button class="add-button auth-submit" type="submit">Log in</button>
+    <p class="auth-foot"><span class="auth-switch-text">No account yet?</span> <button class="auth-switch" type="button">Sign up</button></p>
+  </form>
+</dialog>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
